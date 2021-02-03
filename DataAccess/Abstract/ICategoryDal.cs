@@ -5,10 +5,8 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal:IEntityRepository<Product>
-        //IProductDal - Interface Product Data Access Layer
+    public interface ICategoryDal:IEntityRepository<Category>
     {
-        
 
     }
 }
