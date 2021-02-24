@@ -18,5 +18,6 @@ namespace Business.Abstract
         //Tek ürün döndürüyor
 
         IResult Add(Product product);
+        IResult Update(Product product);
     }
 }
