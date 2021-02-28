@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -31,7 +32,9 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-
+        //Encryption, Hashing
+        //Claim - İddia etmek. product add ya da admin claimlerinden birine sahip olması gerekiyor
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
             //void - özel bir tür döndürmüyorum demek
@@ -50,13 +53,7 @@ namespace Business.Concrete
             }
             _productDal.Add(product);
 
-            return new SuccessResult(Messages.ProductAdded);
-
-
-
-            
-
-            
+            return new SuccessResult(Messages.ProductAdded);        
 
             //validation
             //Tüm şartlar bu katmana yazılır. Eğer şöyleyse bu olsun falan.
