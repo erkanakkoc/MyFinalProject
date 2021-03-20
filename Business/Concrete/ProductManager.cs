@@ -37,7 +37,7 @@ namespace Business.Concrete
 
         //Encryption, Hashing
         //Claim - İddia etmek. product add ya da admin claimlerinden birine sahip olması gerekiyor
-        [SecuredOperation("product.add,admin")]
+        //[SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
@@ -78,10 +78,10 @@ namespace Business.Concrete
             // İş kodları
             // Yetkisi var mı?
 
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 22)
+            //{
+            //    return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            //}
 
 
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);

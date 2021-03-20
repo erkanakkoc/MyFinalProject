@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             //Swagger
             //Dependency chain
             
