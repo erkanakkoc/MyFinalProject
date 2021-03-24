@@ -37,7 +37,7 @@ namespace Business.Concrete
 
         //Encryption, Hashing
         //Claim - İddia etmek. product add ya da admin claimlerinden birine sahip olması gerekiyor
-        //[SecuredOperation("product.add,admin")]
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
